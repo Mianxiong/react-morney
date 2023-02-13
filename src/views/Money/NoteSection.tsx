@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import React, {useState} from "react";
+import styled from 'styled-components';
+import React, {useRef} from 'react';
 
 const Wrapper = styled.section`
   background: #f5f5f5;
@@ -23,19 +23,34 @@ const Wrapper = styled.section`
       border: none;
     }
   }
-`
+`;
 
-const NoteSection: React.FC = () => {
-    const [note, setNote] = useState('')
-    console.log(note);
-    return (
-        <Wrapper>
-            <label>
-                <span>备注</span>
-                <input type="text" placeholder="在这里添加备注"
-                       value={note} onChange={(e) => setNote(e.target.value)}/>
-            </label>
-        </Wrapper>
-    )
+type Props = {
+  value: string;
+  onChange: (value: string) => void;
 }
-export {NoteSection}
+
+const NoteSection: React.FC<Props> = (props) => {
+  const note = props.value
+  const refInput = useRef<HTMLInputElement>(null);
+  //非受控组件
+  const onBlur = () => {
+    if (refInput.current !== null) {
+      props.onChange(refInput.current.value);
+    }
+  };
+  return (
+    <Wrapper>
+      <label>
+        <span>备注</span>
+        {/*受控组件*/}
+        {/*<input type="text" placeholder="在这里添加备注"*/}
+        {/*       value={note} onChange={(e) => setNote(e.target.value)}/>*/}
+        {/*非受控组件*/}
+        <input type="text" placeholder="在这里添加备注"
+               ref={refInput} defaultValue={note} onBlur={onBlur}/>
+      </label>
+    </Wrapper>
+  );
+};
+export {NoteSection};
