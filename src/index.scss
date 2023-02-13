@@ -20,8 +20,9 @@ body {
   display: inline-block;
 }
 
-button{
+button, input{
   font-family: inherit;
+  font-size: inherit;
 }
 :focus{
   outline: none;
