@@ -1,5 +1,5 @@
 import Layout from '../components/Layout';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 import {CategorySection} from './Money/CategorySection';
 import {NoteSection} from './Money/NoteSection';
@@ -37,6 +37,14 @@ function Money() {
       setSelected(defaultFormData)
     }
   }
+  // useEffect(()=>{
+  //   setTimeout(()=>{
+  //     setSelected({
+  //       ...selected,
+  //       amount: 1000
+  //     });
+  //   },3000)
+  // },[])
   return (
     <MyLayout>
       <TagsSection value={selected.tagIds}
