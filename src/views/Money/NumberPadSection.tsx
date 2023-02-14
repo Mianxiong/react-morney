@@ -10,6 +10,7 @@ type Props = {
 
 const NumberPadSection: React.FC<Props> = (props) => {
   // const output = props.value.toString()
+  console.log(props.value);
   const [output, _setOutput] = useState(props.value.toString())
   const setOutput = (output: string) => {
     let newOutput:string
