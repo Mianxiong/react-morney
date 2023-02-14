@@ -1,5 +1,5 @@
 import Layout from '../components/Layout';
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 import {CategorySection} from './Money/CategorySection';
 import {NoteSection} from './Money/NoteSection';
@@ -50,7 +50,7 @@ function Money() {
   //   },3000)
   // },[])
   return (
-    <MyLayout>
+    <MyLayout scrollTop={9999}>
       <TagsSection value={selected.tagIds}
                    onChange={tagIds => onChange({tagIds: tagIds})}>
       </TagsSection>
