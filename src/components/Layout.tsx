@@ -16,14 +16,11 @@ type Props = {
   scrollTop?: number
 }
 const Layout: React.FC<Props> = (props) => {
-  console.log('Layout');
-  console.log(props);
   const mainRef = useRef<HTMLDivElement>(null)
   useEffect(()=>{
     setTimeout(()=>{
       if(!mainRef.current) {return;}
       mainRef.current.scrollTop = props.scrollTop!;
-      console.log(mainRef.current.scrollTop);
     },1000)
   },[props.scrollTop])
   return (
