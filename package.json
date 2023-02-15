@@ -2,6 +2,7 @@
   "name": "morney",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://mianxiong.github.io/morney-website/",
   "dependencies": {
     "@babel/core": "7.9.0",
     "@svgr/webpack": "4.3.3",
